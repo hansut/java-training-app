@@ -15,7 +15,7 @@ import com.accenture.training.java.service.GameService;
 import com.accenture.training.java.service.GuessResult;
 
 /**
- * A sample greetings controller to return greeting text
+ * REST controller for the guessing game.
  */
 @RestController
 public class GameController {
@@ -38,7 +38,7 @@ public class GameController {
     }
 
     /**
-     * Try to guess a letter.
+     * Print instructions.
      */
     @RequestMapping(value = "/", method = RequestMethod.GET)
     @ResponseStatus(HttpStatus.OK)
@@ -48,7 +48,7 @@ public class GameController {
 
 
     /**
-     * Try to guess a letter.
+     * Try to guess a letter (without parameter).
      */
     @RequestMapping(value = "/letter", method = RequestMethod.GET)
     @ResponseStatus(HttpStatus.OK)
@@ -70,7 +70,7 @@ public class GameController {
     }
 
     /**
-     * Try to guess a letter.
+     * Try to guess the whole word (without parameter).
      */
     @RequestMapping(value = "/word", method = RequestMethod.GET)
     @ResponseStatus(HttpStatus.OK)
@@ -101,6 +101,9 @@ public class GameController {
         return "The game has been reset, you can start guessing another word";
     }
 
+    /**
+     * Get formatted text to print as an outcome of a guess.
+     */
     String getOutcome(GuessResult result, String letter) {
         String outcome = "";
         if (result.isWordGuessed()) {
@@ -118,8 +121,12 @@ public class GameController {
         return outcome;
     }
 
+    /**
+     * Validate the text input from URL. Checks:
+     * - if the text is not empty
+     * - if it contains only character (upper or lowercase) up to allowed length.
+     */
     boolean validateInput(String input, int maxLength) {
-
         if (!StringUtils.hasText(input)) {
             return false;
         }

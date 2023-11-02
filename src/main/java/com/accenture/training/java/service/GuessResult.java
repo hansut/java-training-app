@@ -1,5 +1,8 @@
 package com.accenture.training.java.service;
 
+/**
+ * POJO class that represents result of player's guess.
+ */
 public class GuessResult {
 
     private String maskedWord;
@@ -40,5 +43,15 @@ public class GuessResult {
     public void setWordGuessed(boolean wordGuessed) {
 
         this.wordGuessed = wordGuessed;
+    }
+
+    @Override
+    public String toString() {
+
+        return "GuessResult{" +
+                "maskedWord='" + maskedWord + '\'' +
+                ", numberOfHits=" + numberOfHits +
+                ", wordGuessed=" + wordGuessed +
+                '}';
     }
 }

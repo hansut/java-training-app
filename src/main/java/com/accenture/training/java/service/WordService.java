@@ -20,7 +20,7 @@ public class WordService {
     private static final List<String> WORDS = List.of("ACCENTURE", "FUTURE", "TRAINING", "PERSONALITY", "PROFESSIONAL",
             "ACCELERATION", "PROJECT", "WORK");
 
-    private final Set<String> usedWords = new HashSet<>();
+    final Set<String> usedWords = new HashSet<>();
 
     /**
      * Returns random word from the list of words.
