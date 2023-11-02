@@ -24,6 +24,9 @@ public class GameService {
         this.wordService = wordService;
     }
 
+    /**
+     * Initialize the service after constructor call.
+     */
     @PostConstruct
     public void initialize() {
         reset();
@@ -38,6 +41,13 @@ public class GameService {
         char letterAsChar = letter.toUpperCase().charAt(0);
 
         // check if the letter is present in the word; if it is, update result and masked word
+        /*
+            TODO implement part of business logic
+            - iterate over wordToGuess String
+            - for each character of the word, compare it with letter converted to char (letterAsChar variable)
+            - if they are the same, increase counter of hits in result
+            - if they are the same, also replace character at the same position in the maskedWord with the real letter
+         */
         for (int i = 0; i < wordToGuess.length(); i++) {
             if (wordToGuess.charAt(i) == letterAsChar) {
                 result.incrementNumberOfHits();
@@ -45,6 +55,7 @@ public class GameService {
             }
         }
 
+        // set masked word and flag in the result and return it
         result.setMaskedWord(maskedWord);
         result.setWordGuessed(!result.getMaskedWord().contains(MASK_CHARACTER));
         return result;
