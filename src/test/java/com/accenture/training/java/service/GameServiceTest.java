@@ -27,13 +27,7 @@ class GameServiceTest {
         String word = "SOMETHING";
         Mockito.doReturn(word).when(wordService).getWord();
         gameService.initialize();
-        /*
-            TODO implement the rest of the test method
-            - call the gameService.guessLetter() method with parameter "E"
-            - write assertions on the returned GuessResult object, which will check values returned by GuessResult methods
-            - it is expected that this test has 1 hit and returns masked word with only letter E unmasked
-            - it is also expected that the flag isWordGuessed() is false
-         */
+
         GuessResult result = gameService.guessLetter("E");
         Assertions.assertFalse(result.isWordGuessed());
         Assertions.assertEquals(1, result.getNumberOfHits());
@@ -51,6 +45,7 @@ class GameServiceTest {
             - write assertions on the returned GuessResult object, which will check values returned by GuessResult methods
             - it is expected that this test has no hit and returns masked word all letters masked
             - it is also expected that the flag isWordGuessed() is false
+            - HINT: check guessLetter_Correct() test method in this class to find some inspiration
          */
         GuessResult result = gameService.guessLetter("X");
         Assertions.assertFalse(result.isWordGuessed());

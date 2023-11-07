@@ -41,13 +41,6 @@ public class GameService {
         char letterAsChar = letter.toUpperCase().charAt(0);
 
         // check if the letter is present in the word; if it is, update result and masked word
-        /*
-            TODO implement part of business logic
-            - iterate over wordToGuess String
-            - for each character of the word, compare it with letter converted to char (letterAsChar variable)
-            - if they are the same, increase counter of hits in result
-            - if they are the same, also replace character at the same position in the maskedWord with the real letter
-         */
         for (int i = 0; i < wordToGuess.length(); i++) {
             if (wordToGuess.charAt(i) == letterAsChar) {
                 result.incrementNumberOfHits();
@@ -68,6 +61,18 @@ public class GameService {
         GuessResult result = new GuessResult();
 
         // when guessing the word, it is needed to convert it to uppercase for correct matching
+        /*
+            TODO implement part of business logic
+            - compare wordToGuess and word (in uppercase)
+            - if they are equal:
+                - set "wordGuessed" flag on result to true
+                - set "maskedWord" property on result to contain the whole word, unmasked and in uppercase
+                - set "maskedWord" property on this object to contain char array of the whole word, unmasked and in uppercase
+            - if they are not equal:
+                - set "wordGuessed" flag on result to false
+                - set "maskedWord" property on result to contain the value of "maskedWord" property of this object
+            - HINT: check method guessLetter() in this class to find some inspiration
+         */
         if (wordToGuess.equals(word.toUpperCase())) {
             result.setWordGuessed(true);
             result.setMaskedWord(wordToGuess);
