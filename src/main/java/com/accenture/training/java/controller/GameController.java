@@ -69,11 +69,7 @@ public class GameController {
             - return result transformed with getOutcome() method, which expects also "letter" as a second parameter
             - HINT: check method guessWord(@PathVariable(required = false) String word) in this class to find some inspiration
          */
-        if (!validateInput(letter, 1)) {
-            return "You entered invalid letter, please try again.";
-        }
-        GuessResult result = service.guessLetter(letter);
-        return getOutcome(result, letter);
+        return "This method needs to be implemented";
     }
 
     /**

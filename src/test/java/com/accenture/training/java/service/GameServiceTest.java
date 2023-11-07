@@ -57,9 +57,6 @@ class GameServiceTest {
             - it is also expected that variable word and getMaskedWord() method of the result are equal
             - HINT: check guessWord_Incorrect() test method in this class to find some inspiration
          */
-        GuessResult result = gameService.guessWord(word);
-        Assertions.assertTrue(result.isWordGuessed());
-        Assertions.assertEquals(word, result.getMaskedWord());
     }
 
     @Test

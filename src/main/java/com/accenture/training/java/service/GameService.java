@@ -73,14 +73,6 @@ public class GameService {
                 - set "maskedWord" property on result to contain the value of "maskedWord" property of this object
             - HINT: check method guessLetter() in this class to find some inspiration
          */
-        if (wordToGuess.equals(word.toUpperCase())) {
-            result.setWordGuessed(true);
-            result.setMaskedWord(wordToGuess);
-            this.maskedWord = wordToGuess.toCharArray();
-        } else {
-            result.setWordGuessed(false);
-            result.setMaskedWord(maskedWord);
-        }
 
         return result;
     }
