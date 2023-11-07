@@ -5,9 +5,8 @@ import java.util.regex.Pattern;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.util.StringUtils;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -20,7 +19,7 @@ import com.accenture.training.java.service.GuessResult;
 @RestController
 public class GameController {
 
-    public static final int MAX_WORD_LENGTH = 30;
+    public static final int maxWordLength = 30;
 
     public static final String INSTRUCTIONS = """
             Welcome to the guessing game!<br/>
@@ -40,7 +39,7 @@ public class GameController {
     /**
      * Print instructions.
      */
-    @RequestMapping(value = "/", method = RequestMethod.GET)
+    @GetMapping(value = "/")
     @ResponseStatus(HttpStatus.OK)
     public String printInstructions() {
         return INSTRUCTIONS;
@@ -50,7 +49,7 @@ public class GameController {
     /**
      * Try to guess a letter (without parameter).
      */
-    @RequestMapping(value = "/letter", method = RequestMethod.GET)
+    @GetMapping(value = "/letter")
     @ResponseStatus(HttpStatus.OK)
     public String guessLetter() {
         return "You entered invalid letter, please try again.";
@@ -59,7 +58,7 @@ public class GameController {
     /**
      * Try to guess a letter.
      */
-    @RequestMapping(value = "/letter/{letter}", method = RequestMethod.GET)
+    @GetMapping(value = "/letter/{letter}")
     @ResponseStatus(HttpStatus.OK)
     public String guessLetter(@PathVariable(required = false) String letter) {
         /*
@@ -80,7 +79,7 @@ public class GameController {
     /**
      * Try to guess the whole word (without parameter).
      */
-    @RequestMapping(value = "/word", method = RequestMethod.GET)
+    @GetMapping(value = "/word")
     @ResponseStatus(HttpStatus.OK)
     public String guessWord() {
         return "You entered invalid word, please try again.";
@@ -89,10 +88,10 @@ public class GameController {
     /**
      * Try to guess the whole word.
      */
-    @RequestMapping(value = "/word/{word}", method = RequestMethod.GET)
+    @GetMapping(value = "/word/{word}")
     @ResponseStatus(HttpStatus.OK)
     public String guessWord(@PathVariable(required = false) String word) {
-        if (!validateInput(word, MAX_WORD_LENGTH)) {
+        if (!validateInput(word, maxWordLength)) {
             return "You entered invalid word, please try again.";
         }
         GuessResult result = service.guessWord(word);
@@ -102,7 +101,7 @@ public class GameController {
     /**
      * Reset the game to a new word.
      */
-    @RequestMapping(value = "/reset", method = RequestMethod.GET)
+    @GetMapping(value = "/reset")
     @ResponseStatus(HttpStatus.OK)
     public String reset() {
         service.reset();

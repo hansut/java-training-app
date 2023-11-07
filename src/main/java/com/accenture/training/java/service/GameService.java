@@ -63,7 +63,7 @@ public class GameService {
         // when guessing the word, it is needed to convert it to uppercase for correct matching
         /*
             TODO implement part of business logic
-            - compare wordToGuess and word (in uppercase)
+            - check if wordToGuess and word (in uppercase) are equal
             - if they are equal:
                 - set "wordGuessed" flag on result to true
                 - set "maskedWord" property on result to contain the whole word, unmasked and in uppercase
