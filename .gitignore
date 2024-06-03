@@ -34,3 +34,6 @@ bin/
 *.iws
 *.ipr
 .idea/
+
+# target folder
+target/
