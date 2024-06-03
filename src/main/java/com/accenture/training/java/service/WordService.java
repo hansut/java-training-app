@@ -18,7 +18,7 @@ public class WordService {
     private static final Logger LOG = LoggerFactory.getLogger(WordService.class);
 
     private static final List<String> WORDS = List.of("ACCENTURE", "FUTURE", "TRAINING", "PERSONALITY", "PROFESSIONAL",
-            "ACCELERATION", "PROJECT", "WORK");
+            "ACCELERATION", "PROJECT", "WORK");;
 
     final Set<String> usedWords = new HashSet<>();
 

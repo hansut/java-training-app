@@ -1,6 +1,7 @@
 package com.accenture.training.java;
 
 import org.springframework.boot.SpringApplication;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**

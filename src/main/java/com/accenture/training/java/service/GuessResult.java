@@ -10,6 +10,8 @@ public class GuessResult {
     private int numberOfHits = 0;
 
     private boolean wordGuessed = false;
+    
+    private String word;
 
     public String getMaskedWord() {
 

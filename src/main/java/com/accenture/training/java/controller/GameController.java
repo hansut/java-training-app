@@ -118,9 +118,9 @@ public class GameController {
         } else if (letter == null) {
             outcome += "Wrong guess.<br/>";
         }
-        if (letter != null) {
+
             outcome += "Letter " + letter.toUpperCase() + " is present " + result.getNumberOfHits() + " times.<br/>";
-        }
+        
         outcome += "The word is '" + result.getMaskedWord() + "' and has " + result.getMaskedWord().length() + " letters.<br/>";
         if (result.isWordGuessed()) {
             outcome += "If you want to repeat the game with another word, please call /reset endpoint.<br/>";
