@@ -61,18 +61,7 @@ public class GameService {
         GuessResult result = new GuessResult();
 
         // when guessing the word, it is needed to convert it to uppercase for correct matching
-        /*
-            TODO implement part of business logic
-            - check if wordToGuess and word (in uppercase) are equal
-            - if they are equal:
-                - set "wordGuessed" flag on result to true
-                - set "maskedWord" property on result to contain the whole word, unmasked and in uppercase
-                - set "maskedWord" property on this object to contain char array of the whole word, unmasked and in uppercase
-            - if they are not equal:
-                - set "wordGuessed" flag on result to false
-                - set "maskedWord" property on result to contain the value of "maskedWord" property of this object
-            - HINT: check method guessLetter() in this class to find some inspiration
-         */
+
         if (wordToGuess.equals(word.toUpperCase())) {
             result.setWordGuessed(true);
             result.setMaskedWord(wordToGuess);
