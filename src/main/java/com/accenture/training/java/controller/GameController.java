@@ -61,14 +61,6 @@ public class GameController {
     @GetMapping(value = "/letter/{letter}")
     @ResponseStatus(HttpStatus.OK)
     public String guessLetter(@PathVariable(required = false) String letter) {
-        /*
-            TODO implement method:
-            - call method for input validation with maxLength = 1
-            - if validation fails, print return a String with error message
-            - call service.guessLetter() method that implements the business logic
-            - return result transformed with getOutcome() method, which expects also "letter" as a second parameter
-            - HINT: check method guessWord(@PathVariable(required = false) String word) in this class to find some inspiration
-         */
         if (!validateInput(letter, 1)) {
             return "You entered invalid letter, please try again.";
         }
